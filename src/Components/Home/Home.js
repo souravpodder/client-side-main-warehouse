@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SingleItem from '../SingleItem/SingleItem';
 import './Home.css';
 
 
 const Home = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetch('http://localhost:5000/items')
@@ -46,6 +48,11 @@ const Home = () => {
             items.map(item => <SingleItem key={item._id} item={item} />)
           }
         </div>
+      </div>
+
+      {/* manage inventory link  */}
+      <div className='text-center my-5'>
+        <button type="button" class="btn btn-link" onClick={() => navigate('/manage')}>Manage Inventories</button>
       </div>
 
 
