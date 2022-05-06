@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
+  const navigate = useNavigate('');
+
   const [items, setItems] = useState([]);
   useEffect(() => {
     fetch('http://localhost:5000/items')
@@ -60,7 +63,7 @@ const ManageInventory = () => {
       </Table>
 
       <div className='w-25 mx-auto my-5'>
-        <button className='common-btn'>Add New Item</button>
+        <button className='common-btn' onClick={() => navigate('/add')}>Add New Item</button>
       </div>
     </div>
   );
