@@ -4,6 +4,7 @@ import SingleItem from '../SingleItem/SingleItem';
 import './Home.css';
 
 
+
 const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
@@ -52,7 +53,7 @@ const Home = () => {
 
       {/* manage inventory link  */}
       <div className='text-center my-5'>
-        <button type="button" class="btn btn-link" onClick={() => navigate('/manage')}>Manage Inventories</button>
+        <button type="button" className="manage-link-btn text-primary" onClick={() => navigate('/manage')}>Manage Inventories</button>
       </div>
 
 

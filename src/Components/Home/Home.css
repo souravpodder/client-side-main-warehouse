@@ -6,3 +6,11 @@
   padding: 250px 0;
 }
 
+.manage-link-btn{
+  border: none;
+  background: none;
+  font-size: 28px;
+  
+  text-decoration: underline;
+}
+

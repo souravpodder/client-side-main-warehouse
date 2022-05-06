@@ -101,7 +101,7 @@ const ItemDetails = () => {
       </div>
 
       <div className='text-center my-5'>
-        <button type="button" class="btn btn-link" onClick={() => navigate('/manage')}>Manage Inventories</button>
+        <button type="button" className="manage-link-btn text-primary" onClick={() => navigate('/manage')}>Manage Inventories</button>
       </div>
     </>
 
