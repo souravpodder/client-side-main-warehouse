@@ -1,19 +1,24 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import './AddItem.css';
 
 const AddItem = () => {
+  const [user] = useAuthState(auth);
+  console.log(user);
+
   const { register, handleSubmit } = useForm();
   // post the data on form submit 
   const onSubmit = data => {
-    console.log(data);
+    // console.log(data);
     fetch('http://localhost:5000/item', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({ ...data, email: user.email })
     })
       .then(res => res.json())
       .then(data => {
