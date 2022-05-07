@@ -1,0 +1,21 @@
+.half-line{
+  height: 2px;
+  width: 40%;
+  background-color: rgb(33, 6, 6);
+}
+
+.social-btn-container{
+  width: 50%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 576px) {
+  .social-btn-container{
+    width: 100%;
+  }
+  .login-google-btn{
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  
+}

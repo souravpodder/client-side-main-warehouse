@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './ItemDetails.css';
 
 const ItemDetails = () => {
@@ -34,7 +35,8 @@ const ItemDetails = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setItem({ ...item, quantity })
+        setItem({ ...item, quantity });
+        toast('Item Delivered Successfully');
       })
 
   }
@@ -56,7 +58,9 @@ const ItemDetails = () => {
       })
         .then(res => res.json())
         .then(data => {
-          setItem({ ...item, quantity })
+          setItem({ ...item, quantity });
+          toast(`Item Restocked by: ${increaseQuantity}`);
+
         })
     }
   }
@@ -87,7 +91,7 @@ const ItemDetails = () => {
           <div className="col-md-4"></div>
         </div>
       </div>
-
+      {/* restock item form  */}
       <div className='py-5 w-50 mx-auto'>
         <h3 className='text-center'>Restock the Items</h3>
         <Form onSubmit={(event) => handleIncreaseQuantity(_id, event)}>
