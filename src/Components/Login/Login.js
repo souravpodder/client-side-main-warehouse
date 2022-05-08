@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -23,15 +24,31 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/';
 
 
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   // handle error 
   let errorElement;
   if (error) {
     errorElement = <p className='text-center text-danger fw-bold'>Error: {error && error.message}</p>
   }
 
+  console.log(user);
 
   if (user) {
-    navigate(from, { replace: true });
+    const url = 'http://localhost:5000/getToken';
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: user?.user?.email
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem('accessToken', data.token);
+        navigate(from, { replace: true });
+      });
   }
 
 
@@ -46,6 +63,18 @@ const Login = () => {
   const handleLogin = event => {
     event.preventDefault();
     signInWithEmailAndPassword(email, password);
+  }
+
+  const handleResetPassword = async () => {
+
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast('Password Reset Email sent Successfully!');
+    }
+    else {
+      toast('Please enter your email address.');
+    }
+
   }
 
 
@@ -70,7 +99,7 @@ const Login = () => {
       {errorElement}
 
       <p className='text-center'>Not Registered Yet? <Link to="/register">Register Now!</Link></p>
-
+      <p className='text-center'>Forgot Password? <button onClick={handleResetPassword} className='btn btn-link text-warning fw-bold text-decoration-none'>Reset Password</button></p>
       <SocialLogin />
     </div>
   );
