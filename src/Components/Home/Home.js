@@ -18,7 +18,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/items')
+    fetch('https://morning-caverns-62673.herokuapp.com/items')
       .then(res => res.json())
       .then(data => {
         setItems(data);

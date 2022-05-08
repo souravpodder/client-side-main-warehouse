@@ -12,6 +12,8 @@ import MyItems from './Components/MyItems/MyItems';
 import Register from './Components/Register/Register';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -43,8 +45,9 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes >
-
+      <Footer />
       <ToastContainer />
     </div >
   );

@@ -14,7 +14,7 @@ const MyItems = () => {
   useEffect(() => {
 
     try {
-      fetch(`http://localhost:5000/myitems?email=${user.email}`, {
+      fetch(`https://morning-caverns-62673.herokuapp.com/myitems?email=${user.email}`, {
         headers: {
           'authorization': `${user.email} ${localStorage.getItem('accessToken')}`
         }
@@ -43,7 +43,7 @@ const MyItems = () => {
   const handleItemDelete = id => {
     const agree = window.confirm('Are You sure to delete this item?');
     if (agree) {
-      fetch(`http://localhost:5000/item/${id}`, {
+      fetch(`https://morning-caverns-62673.herokuapp.com/item/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

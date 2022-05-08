@@ -13,7 +13,7 @@ const ItemDetails = () => {
 
   // get the specific item details 
   useEffect(() => {
-    fetch(`http://localhost:5000/item/${id}`)
+    fetch(`https://morning-caverns-62673.herokuapp.com/item/${id}`)
       .then(res => res.json())
       .then(data => {
         setItem(data)
@@ -26,7 +26,7 @@ const ItemDetails = () => {
 
   const handleQuantity = id => {
     quantity = quantity - 1;
-    fetch(`http://localhost:5000/updatequantity/${id}`, {
+    fetch(`https://morning-caverns-62673.herokuapp.com/updatequantity/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
@@ -49,7 +49,7 @@ const ItemDetails = () => {
     if (increaseQuantity) {
       quantity = quantity + parseInt(increaseQuantity);
       console.log(quantity);
-      fetch(`http://localhost:5000/updatequantity/${id}`, {
+      fetch(`https://morning-caverns-62673.herokuapp.com/updatequantity/${id}`, {
         method: 'PUT',
         headers: {
           'content-type': 'application/json'

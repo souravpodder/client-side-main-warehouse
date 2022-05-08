@@ -13,7 +13,7 @@ const AddItem = () => {
   // post the data on form submit 
   const onSubmit = data => {
     // console.log(data);
-    fetch('http://localhost:5000/item', {
+    fetch('https://morning-caverns-62673.herokuapp.com/item', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -28,17 +28,20 @@ const AddItem = () => {
   };
 
   return (
-    <div className='w-50 mx-auto mt-5'>
+    <div className='mt-5'>
       <h4 className='text-center mb-3'>Add item</h4>
-      <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-        <input className='mb-3 input_field' type="text" placeholder='Item Name' {...register("name", { required: true })} />
-        <input className='mb-3 input_field' type="number" placeholder='Quantity' {...register("quantity", { required: true })} />
-        <textarea className='mb-3 ps-3' placeholder='Description' {...register("description")} />
-        <input className='mb-3 input_field' placeholder='Price' type="number" {...register("price", { required: true })} />
-        <input className='mb-3 input_field' placeholder='Image URL' type="text" {...register("img", { required: true })} />
-        <input className='mb-3 input_field' placeholder='Supplier Name' type="text" {...register("supplier")} />
-        <input type="submit" value="Add Item" />
-      </form>
+      <div className="add-item-container container">
+        <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
+          <input className='mb-3 input_field' type="text" placeholder='Item Name' {...register("name", { required: true })} />
+          <input className='mb-3 input_field' type="number" placeholder='Quantity' {...register("quantity", { required: true })} />
+          <textarea className='mb-3 ps-3' placeholder='Description' {...register("description")} />
+          <input className='mb-3 input_field' placeholder='Price' type="number" {...register("price", { required: true })} />
+          <input className='mb-3 input_field' placeholder='Image URL' type="text" {...register("img", { required: true })} />
+          <input className='mb-3 input_field' placeholder='Supplier Name' type="text" {...register("supplier")} />
+          <input type="submit" value="Add Item" />
+        </form>
+      </div>
+
     </div>
   );
 };

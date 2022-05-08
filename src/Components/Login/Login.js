@@ -39,7 +39,7 @@ const Login = () => {
   }
 
   if (user) {
-    const url = 'http://localhost:5000/getToken';
+    const url = 'https://morning-caverns-62673.herokuapp.com/getToken';
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
