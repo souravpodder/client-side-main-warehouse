@@ -83,7 +83,11 @@ const ItemDetails = () => {
                   <p className='card-info'>quantity: {quantity}</p>
                   <p className='card-info'>supplier: {supplier}</p>
                 </Card.Text>
-                <button className='common-btn' onClick={() => handleQuantity(_id)}>Delivered</button>
+
+                {
+                  quantity === 0 ? <button className='btn btn-danger'>Sold Out!</button> : <button className='common-btn' onClick={() => handleQuantity(_id)}>Delivered</button>
+                }
+
               </Card.Body>
             </Card>
 

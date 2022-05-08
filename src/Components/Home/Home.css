@@ -1,7 +1,8 @@
 .top-banner{
   width: 100%;
-  height: 100%;
-  background: url('../../images/bg-images/sports-bg-1.jpg') no-repeat center;
+  height: 140%;
+  /* background: url('../../images/bg-images/sports-bg-1.jpg') no-repeat center; */
+  background: linear-gradient(rgba(61, 55, 55, 0.5), rgba(77, 73, 73, 0.5)),url('../../images/bg-images/sports-bg-1.jpg') no-repeat center;
   background-size: cover;
   padding: 250px 0;
 }
@@ -14,3 +15,26 @@
   text-decoration: underline;
 }
 
+.people-image{
+  border-radius: 25px;
+}
+
+/* benefit section css  */
+.benefit-section{
+  margin-top: 140px;
+  margin-bottom: 80px;
+}
+
+.icons{
+  color: brown;
+  font-size: 32px;
+  margin-right: 7px;
+}
+
+.benefits{
+  color: #8B008B ;
+}
+
+.justify-text{
+  text-align: justify;
+}

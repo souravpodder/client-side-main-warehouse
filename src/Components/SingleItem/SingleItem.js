@@ -16,7 +16,7 @@ const SingleItem = ({ item }) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
-            <p className='card-info'>{description}</p>
+            <p className='card-info justify-text'>{description}</p>
             <p className='card-info'>price: ${price}</p>
             <p className='card-info'>quantity: {quantity}</p>
             <p className='card-info'>supplier: {supplier}</p>
