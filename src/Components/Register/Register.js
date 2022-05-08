@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import LoadinSpinner from '../LoadinSpinner/LoadinSpinner';
 
 const Register = () => {
 
@@ -20,6 +21,10 @@ const Register = () => {
   let errorElement;
   if (error) {
     errorElement = <p className='text-center text-danger'>Error: {error && error.message}</p>
+  }
+
+  if (loading) {
+    return <LoadinSpinner />;
   }
 
   if (user) {

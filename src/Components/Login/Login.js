@@ -6,6 +6,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
+import LoadinSpinner from '../LoadinSpinner/LoadinSpinner';
 
 const Login = () => {
 
@@ -31,7 +32,11 @@ const Login = () => {
     errorElement = <p className='text-center text-danger fw-bold'>Error: {error && error.message}</p>
   }
 
-  console.log(user);
+  // console.log(user);
+
+  if (loading) {
+    return <LoadinSpinner />;
+  }
 
   if (user) {
     const url = 'http://localhost:5000/getToken';

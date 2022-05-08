@@ -11,7 +11,6 @@ const MyItems = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const [myItems, setMyItems] = useState([]);
-  console.log(myItems);
   useEffect(() => {
 
     try {
@@ -22,7 +21,6 @@ const MyItems = () => {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           if (data.message === 'Unauthorized Access!') {
             toast.error(data.message);
           } else {
@@ -61,13 +59,9 @@ const MyItems = () => {
     <div className="container my-5">
       <div className="row g-5">
         {
-          (() => {
-            if (myItems !== []) {
 
-              return (myItems?.map(myItem => <MySingleItem key={myItem._id} myItem={myItem} handleItemDelete={handleItemDelete} />))
+          myItems?.map(myItem => <MySingleItem key={myItem._id} myItem={myItem} handleItemDelete={handleItemDelete} />)
 
-            }
-          })()
         }
       </div>
     </div>
@@ -77,6 +71,3 @@ const MyItems = () => {
 
 export default MyItems;
 
-/* {
-  myItems?.map(myItem => <MySingleItem key={myItem._id} myItem={myItem} handleItemDelete={handleItemDelete} />)
-} */

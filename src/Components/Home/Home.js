@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadinSpinner from '../LoadinSpinner/LoadinSpinner';
 import SingleItem from '../SingleItem/SingleItem';
 import './Home.css';
 
@@ -19,7 +20,7 @@ const Home = () => {
   console.log(items);
   return (
     <div>
-      {/* banner  */}
+      {/* banner section  */}
       <section>
         <div className="container-fluid mx-0 top-banner">
           <div className="container">
@@ -46,7 +47,7 @@ const Home = () => {
       <div className="container">
         <div className="row g-5">
           {
-            items.map(item => <SingleItem key={item._id} item={item} />)
+            (!items.length) ? <LoadinSpinner /> : items.map(item => <SingleItem key={item._id} item={item} />)
           }
         </div>
       </div>

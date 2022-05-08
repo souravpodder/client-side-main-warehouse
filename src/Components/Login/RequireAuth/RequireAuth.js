@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import LoadinSpinner from '../../LoadinSpinner/LoadinSpinner';
 
 const RequireAuth = ({ children }) => {
 
@@ -10,7 +11,7 @@ const RequireAuth = ({ children }) => {
 
   //to solve reloading back to login
   if (loading) {
-    return <p>loading ...</p>;
+    return <LoadinSpinner />;
   }
 
   if (!user) {
