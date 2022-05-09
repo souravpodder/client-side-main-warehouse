@@ -35,7 +35,7 @@ const ManageInventory = () => {
     <div>
       <div className=''>
         <h4 className='text-center mt-5 mb-3'>Manage the inventory </h4>
-        <div className="container">
+        {/*   <div className="container">
           <Table striped bordered hover size="sm" className='table-container'>
             <thead>
               <tr>
@@ -64,9 +64,41 @@ const ManageInventory = () => {
             </tbody>
           </Table>
 
+        </div> */}
+
+
+        <div className='table-responsive container'>
+          <table className="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Supplier</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {
+                items.map(item => {
+                  return <tr key={item._id}>
+                    <td>{item.name}</td>
+                    <td>{item._id}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.price}</td>
+                    <td>{item.supplier}</td>
+                    <td><button className='btn btn-danger' onClick={() => handleDeleteItem(item._id)}>Delete</button></td>
+                  </tr>
+                })
+              }
+
+            </tbody>
+          </table>
         </div>
-        <div className='w-25 mx-auto my-5'>
-          <button className='common-btn' onClick={() => navigate('/add')}>Add New Item</button>
+
+        <div className='my-5 add-item-btn-container'>
+          <button className='common-btn w-100' onClick={() => navigate('/add')}>Add New Item</button>
         </div>
       </div>
 

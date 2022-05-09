@@ -4,21 +4,29 @@ import './Blogs.css';
 const Blogs = () => {
   return (
     <div className='blogs container'>
-      <p> Question 1:Javascript is an implementation of ECMAScript, a standard defining the programming language.Browsers have a built-in interpreter for Javascript, along with a bunch of libraries and a run-time environment for working with web pages.
+      <p className='py-4'> <span className='fw-bold'>Question 1:</span> Javascript is a programming language. Javascipt is used to make the web pages more dynamic. On the other hand, NodeJs is a Javascipt runtime environment through which we can run Javascipt on the server side also. Javascript can easily add HTML and manipulate the DOM. Nodejs can not manipulate the dom. JavaScript can execute on any engine such as spider monkey, v8 engine of google chrome, JavaScript core of Safari. On the other hand, Node.js is capable of only on the v8 engine of google chrome. </p>
 
-        Nodejs is an interpreter and environment for javascript which includes a bunch of libraries for using javascript as a general-purpose programming language, with an emphasis on asynchronicity and non-blocking operations. Node actually runs the same interpreter as Google Chrome v8 engine, but provides a different set of libraries and a different run-time environment. It also includes a package management system  and a few language extensions you won't find standard in browsers </p>
+      <p><span className='fw-bold'>Question 2:</span><br />
+        when to use node: <br />
+        <ul>
+          <li>Data streaming is needed breaking large files into smaller files to provide lag free streaming. Node.js is perfect for this tasks, because it provides an api to function with streams and enables creating readable and writable data streams.</li>
+          <li>Node js can manage several processes at the same time. Node.js is useful for applications where frequent updates and management of multiple processes are needed. For example: team management</li>
+          <li>When ever we need to handle real-time situations we need a server. nodejs is a trustworthy and it gives a great performance on the server side. so we can use it efficiently on the server side.</li>
+        </ul><br />
 
-      <p>Question 2: Node. js is primarily used for non-blocking, event-driven servers, due to its single-threaded nature. It's used for traditional web sites and back-end API services, but was designed with real-time, push-based architectures in mind.
-        MongoDB is built on a scale-out architecture that has become popular with developers of all kinds for developing scalable applications with evolving data schemas.
+        when to use mongodb:
+        <ul>
+          <li>Mongodb can be used for the applications in which users do not interact with each other. For example a blogging application where the user only need to access his own blogs. With some simple queries mongodb can provide the user only his blogs' access.</li>
+          <li> We should use MongoDB is trying to combine many datasets. Its unique design allows for flexibility to store the data. we can store data from many data sources like websites, databases, RSS feeds, etc in a single place</li>
 
-        As a document database, MongoDB makes it easy for developers to store structured or unstructured data. It uses a JSON-like format to store documents. This format directly maps to native objects in most modern programming languages, making it a natural choice for developers, as they don’t need to think about normalizing data.
+        </ul>
+
+
 
       </p>
 
       <p>
-        Question 4: JSON Web Token is a standard used to create access tokens for an application.
-        It works this way: the server generates a token that certifies the user identity, and sends it to the client.
-        The client will send the token back to the server for every subsequent request, so the server knows the request comes from a particular identity.
+        <span className='fw-bold'>Question 3:</span> SQL databases use structured data. nosql databases use dynamic schemas for unstructured data.SQL databases are formed as a table, whereas nosql databases represent document, key-value, graph etc.SQL databases are vertically scalable. whereas nosql are horizontally scalable. SQL databases are best for complex and big queries. Nosql databases are not so good for complex queries because they are not as efficient as sql databases.
       </p>
 
 

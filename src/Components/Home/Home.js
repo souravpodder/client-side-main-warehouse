@@ -23,9 +23,9 @@ const Home = () => {
       .then(data => {
         setItems(data);
       })
-  }, [])
+  }, [items])
 
-  console.log(items);
+  // console.log(items);
   return (
     <div>
       {/* banner section  */}

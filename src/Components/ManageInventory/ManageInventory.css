@@ -1,5 +1,12 @@
-@media only screen and (max-width:576px){
-  .table-container{
-    width: 100%;
+
+
+.add-item-btn-container{
+  width: 25%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width:768px){
+  .add-item-btn-container{
+    width: 50%;
   }
 }
